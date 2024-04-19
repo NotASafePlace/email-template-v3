@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Templates</title>
+</head>
+<body>
+    <style>
+        :root{
+            --font-family-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+
+            --fs-l: 7rem;
+            --fs-m: 1.77rem;
+            --fs-rgl: 1rem;
+            --fs-s: 0.7rem;
+            
+            --color-balance: #4abdac;
+            --color-brighter:#fc4a14;
+            --color-bright:#f7b733;
+            --color-calm:#dfdce3;
+            --color-mono:#aaaaaa;
+            --color-dark: #1a1b1b;
+
+            --gutter: 1.5em;
+            --gutter-half: 0.77em;
+
+            --border-form: 3px solid var(--color-dark);
+
+            --padding-y-wide: calc(var(--gutter) * 3) 0;
+
+
+            /* background blocks */
+            --block-position-1:rotate(45deg) translateX(1200px) translateY(200px);
+            --block-position-2: rotate(45deg) translateX(-300px) translateY(400px);
+
+            --thumbnail-template-1: url('img/email-template-1.png');
+            --thumbnail-template-2: url('img/email-template-2.png');
+
+            
+        }
+
+        @media (max-width: 800px) {
+            :root{
+                --fs-l: 4.7rem;
+                --fs-m: 1.77rem;
+                --fs-rgl: 1rem;
+                --fs-s: 0.7rem;
+            
+            }
+
+
+        }
+
+        @media (max-width: 400px) {
+            :root{
+                --fs-l: 2.7rem;
+                --fs-m: 1.77rem;
+                --fs-rgl: 1rem;
+                --fs-s: 0.7rem;
+
+                --gutter: 1.3em;
+                --gutter-half: 0.57em; 
+                
+                --padding-y-wide: calc(var(--gutter) * 2.5) 0;
+
+                --block-position-1:rotate(45deg) translateX(780px) translateY(400px);
+            }
+
+            .template-container{
+                flex-direction: column;
+            }
+           
+        }
+
+
+
+        *{
+        }
+
+        html{
+            max-width: 1600px;
+            padding: 0;
+
+        }
+
+        body{
+            overflow-x: hidden;
+            background-color: var(--color-bright);
+            height: auto;
+        }
+
+        body>*:not(footer){
+            width: clamp(360px, 80%, 800px) ;
+            margin-inline: auto;
+
+        }
+
+        header{
+            display: block;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .theme{
+
+        }
+
+        header h1{
+            font-size: var(--fs-l);
+            font-family: var(--font-family-heading);
+            font-weight: 900;
+            color: var(--color-calm);
+            text-shadow: 10px 10px 7px var(--color-balance);
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-top: var(--gutter);
+            margin-bottom: "-"var(--gutter);
+        }
+
+        header p{
+            font-size: var(--fs-rgl);
+            font-family: var(--font-family-base);
+            color: var(--color-calm);
+            text-shadow: 10px 10px 6px var(--color-balance);
+            text-align: right;
+            line-height: 1.1;
+
+        }
+
+        main{
+            position: relative;
+            z-index: 1;
+            padding: var(--padding-y-wide);
+            /* filter: opacity(0.8); */
+        }
+
+        /* main>*{
+            margin: var(--gutter-half);
+        } */
+
+        .template-container{
+            display: flex;
+            gap: var(--gutter);
+            justify-content: space-between;
+        }
+
+        footer{
+            display: block;
+            position: relative;
+            background-color: var(--color-brighter);
+            width: 100%;
+            padding: var(--padding-y-wide);
+        }
+
+        footer p{
+            font-size: var(--fs-s);
+            font-family: var(--font-family-heading);
+            text-align: justify;
+            width: 80%;
+            margin-inline: auto;
+        }
+
+        /* background-blocks */
+
+        .side-block{
+            width: 50em;
+            height: 30em;
+            overflow:  hidden;
+            position: absolute;
+            z-index: 0;
+            border-radius: var(--gutter-half);
+            filter: opacity(0.9);
+        }
+        
+        .block1{
+            transform: var(--block-position-1);
+            background-color: var(--color-mono);
+        }
+
+        .block2{
+            transform:var(--block-position-2);
+            background-color: var(--color-brighter);
+        }
+
+        img{
+            width: 100%;
+            box-shadow: 1px 1px 2px 1px var(--color-dark);
+        }
+
+        /* form */
+        form, button{
+            font-family: var(--font-family-heading);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        label{
+            margin-top: var(--gutter);
+        }
+
+        input, textarea{
+            border: var(--border-form);
+        }
+
+        button{
+            margin-top: var(--gutter);
+            border: var(--border-form);
+            cursor: pointer;
+        }
+
+
+
+        .template-1-img{ background-image: var(--thumbnail-template-1);}
+        .template-2-img{ background-image: var(--thumbnail-template-2);}
+
+        .template-1-img,
+        .template-2-img{
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: clamp(300px, 400px, 800px);
+            height: clamp(300px, 400px, 800px);
+            margin-inline: auto;
+        }
+
+        .template-item:hover{
+            outline: var(--border-form);
+            box-shadow: 0px 0px 10px 6px var(--color-dark);
+        }
+
+    </style>
+    <header>
+        <div class="theme">
+            <h1>Email Templates</h1>
+            <p>by Lia</p>
+        </div>
+    </header>
+    <aside>
+        <div class="side-block block1"></div>
+        <div class="side-block block2"></div>
+    </aside>
+    <main>
+        <div class="template-container">
+            <div class="template-item" id="template-1">
+                <a href="scenrio01/index.html"><div class="template-1-img"></div></a>
+            </div>
+            <div class="template-item" id="template-2">
+                <a href="scenrio02/index.html"><div class="template-2-img"></div></a>
+            </div>
+            <div><a href="scenerio03/index.html"><img src="http://unsplash.it/800?random&gravity=center" alt=""></a></div>
+        </div>
+        <form action="mailto:syntaxmonkey2px@gmail.com" method="post" id="cta">
+            <label for="name">name</label>
+            <input type="text" id="name">
+            <label for="email">email</label>
+            <input type="email" id="email" required>
+            <label for="message">message</label>
+            <textarea rows="10" id="message" required></textarea>
+            <button>submit</button>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright © 2024 Lia Siu. All rights reserved. <br><br>
+        <span class="disclaimer">
+            This website/portfolio is intended for showcasing my work on email marketing solutions. <br>
+            The information contained on this website is for general information purposes only. Lia Siu assumes no responsibility for errors or omissions in the contents of the website. <br>
+            Any mention of third-party products, services, or websites is for informational purposes only and does not imply endorsement or recommendation. <br><br>
+        </span>
+        For questions or concerns, please contact me <a href="mailto:syntaxmonkey@gmail.com">here</a>.<br>
+        </p>
+    </footer>
+</body>
+</html>
