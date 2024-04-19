@@ -1,1 +1,1 @@
-# email-templatev3
+# email-template-v3
