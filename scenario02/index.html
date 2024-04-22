@@ -169,32 +169,38 @@
 
         button a{
             text-decoration: none;
-            text-transform: capitalize;
+            text-transform: uppercase;
             color: var(--color-light);
             font-size: var(--fs-rgl);
         }
 
         button{
             grid-area: btn;
-            width: 30%;
-            height: 70%;
+
+            width: 50%;
+            height: 50%;
             background-color: var(--color-bean);
-            padding: calc(var(--gutter) / 1.5) calc(var(--gutter) * 1);
+            padding: calc(var(--gutter) /2) calc(var(--gutter) * 1.77);
+            margin: auto 0;
+
             outline: none;
             border: none;
             border-radius: calc(var(--gutter) *2) var(--gutter) calc(var(--gutter) *2) calc(var(--gutter) *2) ;
-            box-shadow: 3px 3px 3px var(--fc-dark-secondary);
+            box-shadow: 3px 3px 6px var(--fc-dark-secondary);
             position: relative;
 
-            left: 65%;
+            left: 45%;
         }
 
         button:hover{
-            outline: inset 4px solid var(--color-bean) ;
+            outline: 2px solid var(--color-bean);
             background-color: var(--color-light);
             box-shadow: 
-                inset 0px 0px 0px 4px var(--color-bean),
-                -1px -1px 3px var(--fc-dark-secondary);
+                /* inset 0px 0px 0px 1px var(--color-bean), */
+                -3px -3px 6px var(--fc-dark-secondary);
+        }
+
+        button a{
         }
 
         button:hover a{
@@ -293,7 +299,7 @@
             }
 
             .product-item{
-                height: 400px;
+                height: auto;
                 grid-template-columns: 100%;
                 grid-template-rows: 15% 40% 35% 10%;
                 grid-template-areas: 
@@ -310,11 +316,6 @@
                 padding: 0;
             }
 
-            .product-item{
-                height: auto;
-            }
-
-
             .product-description{
                 width: 100%;
                 display: block;
@@ -324,13 +325,12 @@
 
             #hero-btn{
                 display: block;
-                position: relative;
                 width: 100%;
-                height: auto;
+                height: fit-content;
                 left: 0;
-
-                padding: 4px 0;
+                padding: calc(var(--gutter)/2) 0;
             }
+
             button{
                 border-radius: calc(var(--gutter) *2);
             }
