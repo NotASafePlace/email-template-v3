@@ -38,6 +38,8 @@
 
             --thumbnail-template-1: url('img/email-template-1.png');
             --thumbnail-template-2: url('img/email-template-2.png');
+            --thumbnail-template-3: url('img/email-template-3.png');
+
 
             
         }
@@ -138,15 +140,51 @@
             /* filter: opacity(0.8); */
         }
 
-        /* main>*{
-            margin: var(--gutter-half);
-        } */
 
         .template-container{
             display: flex;
-            gap: var(--gutter);
-            justify-content: space-between;
+            width: 500px;
+
+            margin-inline: auto;
+            
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
         }
+
+        .template-item{
+            min-width: clamp(300px, 400px, 800px);
+            height: 100%;
+
+            display: grid;
+            place-items: center;
+            scroll-snap-align: center;
+
+
+            margin: var(--gutter) 50px;
+            padding: 0;
+        }
+
+        #template-1-img{ background-image: var(--thumbnail-template-1);}
+        #template-2-img{ background-image: var(--thumbnail-template-2);}
+        #template-3-img{ background-image: var(--thumbnail-template-3);}
+
+        .template--img{
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: clamp(300px, 400px, 800px);
+            height: clamp(300px, 400px, 800px);
+            margin-inline: auto;
+        }
+
+        .template-item:hover{
+            outline: var(--border-form);
+            box-shadow: 0px 0px 10px 6px var(--color-dark);
+        }
+
+        .template-item:hover .template--img{
+        }
+
+
 
         footer{
             display: block;
@@ -219,22 +257,7 @@
 
 
 
-        .template-1-img{ background-image: var(--thumbnail-template-1);}
-        .template-2-img{ background-image: var(--thumbnail-template-2);}
-
-        .template-1-img,
-        .template-2-img{
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: clamp(300px, 400px, 800px);
-            height: clamp(300px, 400px, 800px);
-            margin-inline: auto;
-        }
-
-        .template-item:hover{
-            outline: var(--border-form);
-            box-shadow: 0px 0px 10px 6px var(--color-dark);
-        }
+       
 
     </style>
     <header>
@@ -250,12 +273,15 @@
     <main>
         <div class="template-container">
             <div class="template-item" id="template-1">
-                <a href="scenario01/index.html"><div class="template-1-img"></div></a>
+                <a href="scenario01/index.html"><div id="template-1-img" class="template--img"></div></a>
             </div>
             <div class="template-item" id="template-2">
-                <a href="scenario02/index.html"><div class="template-2-img"></div></a>
+                <a href="scenario02/index.html"><div id="template-2-img" class="template--img"></div></a>
             </div>
-            <div><a href="scenario03/index.html"><img src="http://unsplash.it/800?random&gravity=center" alt=""></a></div>
+            <div class="template-item" id="template-3">
+                <a href="scenario03/index.html"><div id="template-3-img" class="template--img"></div></a>
+            </div>
+
         </div>
         <form action="mailto:syntaxmonkey2px@gmail.com" method="post" id="cta">
             <label for="name">name</label>
