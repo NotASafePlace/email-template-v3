@@ -74,6 +74,7 @@
             display: grid;
             gap: var(--gutter);
             max-width: 100%;
+            height: auto;
 
         }
 
@@ -111,7 +112,7 @@
             display: block;
             position: relative;
             width: 95%;
-            padding: 0 var(--gutter);
+            /* padding: 0; */
         }
         
         .product-container{
@@ -130,7 +131,7 @@
                 "img heading"
                 "img description"
                 "img btn";
-            gap: 10px;
+            gap: 5px;
 
             margin: var(--gutter) 0;
             padding: var(--gutter);
@@ -165,9 +166,6 @@
             box-shadow: 2px 2px 5px var(--fc-dark-secondary);
         }
 
-        /* .product-item>*:not(img){
-            padding: calc(var(--gutter) * 2);
-        } */
 
         button a{
             text-decoration: none;
@@ -278,7 +276,7 @@
             }
             
             .greeting, main{
-                 margin-inline:auto;
+                 margin: 0 auto;
                  max-width: 100%;
             }
 
@@ -300,21 +298,29 @@
                 padding: 0;
             }
 
-            .product-item img{
-                /* overflow: hidden;
-                margin: var(--gutter) auto; */
+            .product-item{
+                height: auto;
             }
+
 
             .product-description{
                 width: 100%;
-                padding: 0 var(--gutter)
+                display: block;
+                position: relative;
+                padding: 0;
             }
 
             #hero-btn{
+                display: block;
+                position: relative;
                 width: 100%;
+                height: auto;
                 left: 0;
 
-                padding: 0;
+                padding: 4px 0;
+            }
+            button{
+                border-radius: calc(var(--gutter) *2);
             }
 
             .product-item:nth-child(2){
@@ -325,7 +331,7 @@
 
         @media (max-width:900px) {
             .greeting, main{
-                padding: var(--gutter);
+                padding: 0 var(--gutter);
                 max-width: 100%;
             }
         
