@@ -12,7 +12,7 @@
             --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 
-            --fs-l: 7rem;
+            --fs-l: 3rem;
             --fs-m: 1.77rem;
             --fs-rgl: 1rem;
             --fs-s: 0.7rem;
@@ -31,7 +31,6 @@
 
             --padding-y-wide: calc(var(--gutter) * 3) 0;
 
-            --container-width: 40vw;
 
 
             /* background blocks */
@@ -41,6 +40,7 @@
             --thumbnail-template-1: url('img/email-template-1.png');
             --thumbnail-template-2: url('img/email-template-2.png');
             --thumbnail-template-3: url('img/email-template-3.png');
+            --template-frame: url('img/panel-01.png');
 
 
             
@@ -48,24 +48,84 @@
 
         @media (max-width: 800px) {
             :root{
-                --fs-l: 4.7rem;
+                --fs-l: 3.4rem;
                 --fs-m: 1.77rem;
                 --fs-rgl: 1rem;
                 --fs-s: 0.7rem;
 
-                --container-width: 80vw;
+
+
+                --thumbnail-template-1: url('img/email-template-1-mobile.png');
+                --thumbnail-template-2: url('img/email-template-2-mobile.png');
+                --thumbnail-template-3: url('img/email-template-3-mobile.png');
+                --template-frame: url('img/mobile-screen.png');
 
             }
 
+            body{
+                width: 100%;
+            }
 
-            .template-container{
-                border: 2px solid green;
+            main .templates{
+
+                width: 380px;
+                min-width: 350px;
+                height: 50em;
+                
+                position: relative;
+                margin-inline: auto;
+
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 50% 50%;
+            }
+
+            .templates .template--frame{
+                display: block;
+                /* position: relative; */
+                width: 100%;
+                height: 100%;
+
+                /* z-index: 1000; */
+            }
+
+
+            .templates .template-container{
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+
+                width: 22em;
+                height: 45.5em;
+                padding: var(--gutter) 0;
+                margin: var(--gutter-half);
+                background-color: var(--color-calm);
+            }
+
+
+            .templates .template--wrapper{
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+            }
+
+            .templates .template-item{
+                margin: 0 1em 0 0 ;
+                width: 100%;
 
             }
 
-        }
+            .templates .template--img{
+                width: 21.7em;
+                height: 45.5em;
+                margin: var(--gutter-half) 0.18em;
+                z-index: 0;
+            }
 
-        @media (max-width: 400px) {
+
+        }    
+
+        @media (max-width: 450px) {
             :root{
                 --fs-l: 2.7rem;
                 --fs-m: 1.77rem;
@@ -79,16 +139,32 @@
 
                 --block-position-1:rotate(45deg) translateX(780px) translateY(400px);
 
-                --container-width: 80vw;
+
+                --template-frame: url('img/mobile-screen.png');
 
             }
 
+         
             .template-container, .template-item{
-                border: 2px solid blue;
                 width: 80vw;
+                margin: 0;
+                padding: 0;
             }
-           
+/* 
+            body{
+                max-width: 100%;
+            }
+            */
+
+
+            form button{
+                display: block;
+                width: 100%;
+            }
+        
         }
+
+        
 
 
 
@@ -105,7 +181,7 @@
             background-color: var(--color-bright);
         }
 
-        body>*:not(footer){
+        body>*:not(footer, .template--frame){
             width: clamp(360px, 80%, 800px) ;
             margin-inline: auto;
 
@@ -145,36 +221,97 @@
         }
 
         main{
-            position: relative;
             width: 100%;
             height: auto;
-            z-index: 1;
-            padding: var(--padding-y-wide);
-            /* filter: opacity(0.8); */
+  
+        }
+
+        .templates{
+            margin-inline: auto;
+            position: relative;
+            width: 100%;
+            min-width: 800px;
+            height: 40em;
+            
+            display: grid;
+            grid-template-columns: 20% 80%;
+            grid-template-rows: 15% 80% 5%;
+        }
+
+        [class^="arrow"]{
+            display: flex;
+            place-items: center;
+
+            color: var(--color-calm);
+            text-shadow: 0 0 7px var(--color-dark);
+
         }
 
 
+        .template--frame{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+
+            display: grid;
+            place-items: center;
+            left: 0;
+            right: 0;
+            margin-inline: auto;
+            position: absolute;
+
+            /* overflow-x: hidden; */
+
+            background-image: var(--template-frame); 
+            background-size: contain ;
+            background-repeat: no-repeat;
+            object-fit: cover;
+
+            height: 40em;
+            
+            z-index: 0;
+        }
+
         .template-container{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .template--wrapper{
             display: flex;
-            width: var(--container-width);
+
+            width: 100%;
+            height: 100%;
 
             margin-inline: auto;
             
             overflow-x: scroll;
+            overflow-y: hidden;
             scroll-snap-type: x mandatory;
+
+            z-index: 3;
+
+
         }
 
         .template-item{
-            min-width: clamp(300px, 400px, 800px);
-            height: 100%;
-
-            display: grid;
-            place-items: center;
+            width: 90%;
+            height: auto;
+        
             scroll-snap-align: center;
 
 
-            margin: var(--gutter) 50px;
+            margin: 0 50px;
             padding: 0;
+            z-index: 3;
+
         }
 
         #template-1-img{ background-image: var(--thumbnail-template-1);}
@@ -184,15 +321,16 @@
         .template--img{
             background-size: cover;
             background-repeat: no-repeat;
-            width: clamp(300px, 400px, 800px);
-            height: clamp(300px, 400px, 800px);
+            width: 37.5em;
+            height: 80%;
+            overflow-y: hidden;
             margin-inline: auto;
         }
-
+/* 
         .template-item:hover{
             outline: var(--border-form);
             box-shadow: 0px 0px 10px 6px var(--color-dark);
-        }
+        } */
 
 
 
@@ -248,10 +386,12 @@
 
         form{
             display: flex;
+            position: relative;
             flex-direction: column;
+            margin: var(--gutter) 0;
         }
 
-        label{
+        label,.h-captcha{
             margin-top: var(--gutter);
         }
 
@@ -260,14 +400,17 @@
         }
 
         button{
-            margin-top: var(--gutter);
+            width: 10em;
+            height: 3.75em;
+            margin: var(--gutter) auto;
             border: var(--border-form);
             cursor: pointer;
         }
 
+        .h-captcha{
+            margin-inline: auto;
+        }
 
-
-       
 
     </style>
     <header>
@@ -279,29 +422,89 @@
     <aside>
         <div class="side-block block1"></div>
         <div class="side-block block2"></div>
+
     </aside>
     <main>
-        <div class="template-container">
-            <div class="template-item" id="template-1">
-                <a href="scenario01/index.html"><div id="template-1-img" class="template--img"></div></a>
-            </div>
-            <div class="template-item" id="template-2">
-                <a href="scenario02/index.html"><div id="template-2-img" class="template--img"></div></a>
-            </div>
-            <div class="template-item" id="template-3">
-                <a href="scenario03/index.html"><div id="template-3-img" class="template--img"></div></a>
-            </div>
 
+        <div class="templates">
+            <div class="template--frame"></div>
+
+            <!-- <div class="arrow-l"><h1><</h1></div> -->
+            <div class="template-container">
+                <div class="template--wrapper">
+                    <div class="template-item" id="template-1">
+                        <a href="scenario01/index.html"><div id="template-1-img" class="template--img"></div></a>
+                    </div>
+                    <div class="template-item" id="template-2">
+                        <a href="scenario02/index.html"><div id="template-2-img" class="template--img"></div></a>
+                    </div>
+                    <div class="template-item" id="template-3">
+                        <a href="scenario03/index.html"><div id="template-3-img" class="template--img"></div></a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="arrow-r"><h1>></h1></div> -->
         </div>
-        <form action="mailto:syntaxmonkey2px@gmail.com" method="post" id="cta">
+
+        <form action="https://api.web3forms.com/submit" method="POST" id="cta">
+            <input type="hidden" name="access_key" value="d63bc9d1-55c2-4686-a2fd-c99c53d6d196">
+
             <label for="name">name</label>
-            <input type="text" id="name">
+            <input type="text" id="name" name="name">
             <label for="email">email</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required>
             <label for="message">message</label>
-            <textarea rows="10" id="message" required></textarea>
+            <textarea rows="10" id="message" name="message" required></textarea>
+
+                <!-- hCaptcha Spam Protection -->
+            <div class="h-captcha" data-captcha="true"></div>
+
             <button>submit</button>
         </form>
+        <!-- Required for hCaptcha -->
+        <script src="https://web3forms.com/client/script.js" async defer>
+
+
+            const form = document.getElementById('form');
+            const result = document.getElementById('result');
+            
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const formData = new FormData(form);
+              const object = Object.fromEntries(formData);
+              const json = JSON.stringify(object);
+              result.innerHTML = "Please wait..."
+            
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let json = await response.json();
+                        if (response.status == 200) {
+                            result.innerHTML = "Form submitted successfully";
+                        } else {
+                            console.log(response);
+                            result.innerHTML = json.message;
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        result.innerHTML = "Something went wrong!";
+                    })
+                    .then(function() {
+                        form.reset();
+                        setTimeout(() => {
+                            result.style.display = "none";
+                        }, 3000);
+                    });
+            });
+        </script>            
+            
     </main>
     <footer>
         <p>Copyright © 2024 Lia Siu. All rights reserved. <br><br>
