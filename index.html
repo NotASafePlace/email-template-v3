@@ -68,9 +68,8 @@
 
             }
 
-            body header p{
-                text-right: center;
-                margin-right: 5em;
+            header #credit{
+                text-align: left;
             }
 
             main .templates{
@@ -228,13 +227,17 @@
             font-family: var(--font-family-base);
             color: var(--color-calm);
             text-shadow: 10px 10px 6px var(--color-balance);
-            text-align: right;
             line-height: 1.1;
 
         }
 
-        *{
-            /* outline: 2px solid rebeccapurple; */
+        #credit{
+            text-align: right;
+
+        }
+
+        #scroll-msg{
+            text-align: center;
         }
 
         main{
@@ -437,7 +440,12 @@
     <header>
         <div class="theme">
             <h1>Email Templates</h1>
-            <p>by Lia</p>
+            <span id="credit">
+                <p>by Lia</p>
+            </span>
+            <span id="scroll-msg">
+                <p> <- scroll see other templates -> </p>
+            </span>
         </div>
     </header>
     <aside>

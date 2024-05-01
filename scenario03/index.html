@@ -28,7 +28,7 @@
             --fs-rgl: 1rem;
             --fs-s: 0.77rem;
 
-            --border-thick: 1.3em;
+            --border-thick: 2em;
 
             --logo: url(img/logoipsum-285.svg);
             --gutter: 2em;
@@ -84,7 +84,7 @@
         }
 
         #intro, #closing{
-            padding: 0 var(--border-thick);
+            padding: var(--border-thick);
             text-align: center;
         }
 
@@ -149,12 +149,11 @@
 
 
         #offer{
-            width: 100%;
             background-color: var(--color-shade1);
             text-align: center;
-            padding: var(--gutter);
-
+            padding: var(--border-thick);
         }
+
 
         #discount-code{
             display: block;
@@ -211,7 +210,7 @@
             text-align: center;
         }
 
-        @media(max-width: 600px) {
+        @media(max-width: 800px) {
 
         :root{
             --fs-xl: 2.1rem;
@@ -228,6 +227,8 @@
 
             body{
                 margin: 0;
+                width: 100%;
+                margin-inline: auto;
                 max-width: 100%;
             }
 
@@ -241,9 +242,10 @@
             #intro, p{
                 padding: var(--gutter-space);
                 width: auto;
+                
             }
 
-            tr, td, #offer {
+            tr, td{
                 display: block;
                 padding: 0;
                 /* column-span: 1; */
@@ -302,7 +304,14 @@
                 </tr>
                 <tr>
                     <td colspan="2" id="intro" class="intro">
-                        <p>At EcoGear, we believe in the power of adventure and the importance of protecting the environment we love to explore. That's why we're excited to introduce our latest collection of eco-friendly camping gear, designed to make your outdoor adventures more sustainable and unforgettable.</p>
+                        <p>We believe in lorem ipsum dolor sit amet consectetur adipisicing elit. Et provident eos autem consectetur? Adipisci error mollitia hic dolorum consequuntur distinctio.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="offer" class="offer">
+                        <h3>use the discount code for 20% off*</h3>
+                        <span id="discount-code">HAPPY30</span>
+                        <p>*valid before Apr 1st.</p>
                     </td>
                 </tr>
                 <tr id="products" class="product--container">
@@ -331,14 +340,6 @@
                             <td><img id="product--img" src="img/camping-lantern-portable-charger-stock.jpg" width="720" height="1280" alt="portable camping lantern in front of camping tent "></td>
                             <td>
                         </tr>
-                    </td>
-                </tr>
-                </tr>
-                <tr id="offer" class="offer">
-                    <td colspan="2">
-                        <h3>use the discount code for 20% off*</h3>
-                        <span id="discount-code">HAPPY30</span>
-                        <p>*valid before Apr 1st.</p>
                     </td>
                 </tr>
                 <tr id="cta" class="cta">
