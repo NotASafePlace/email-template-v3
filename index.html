@@ -68,8 +68,9 @@
 
             }
 
+            header>*, 
             header #credit{
-                text-align: left;
+                text-align: center;
             }
 
             main .templates{
@@ -133,7 +134,7 @@
                 z-index: 0;
             }
 
-            main form{
+            main form, main .message{
                 width: 90%;
             }
 
@@ -159,7 +160,10 @@
             }
 
 
-         
+            header>*{
+                text-align: center;
+            }
+
             .template-container, .template-item{
                 /* width: 80vw; */
                 margin: 0;
@@ -202,7 +206,7 @@
             display: block;
             position: relative;
             z-index: 1;
-            margin-bottom: 3em;
+            margin-bottom: 2em;
 
         }
 
@@ -356,6 +360,15 @@
 
         }
 
+        .message{
+            font-size: var(--fs-rgl);
+            font-family: var(--font-family-heading);
+            text-align: justify;
+            width: 70%;
+            margin: var(--gutter) auto;
+            text-shadow: 0 0 7px var(--color-calm);
+        
+        }
 
         footer{
             display: block;
@@ -475,6 +488,14 @@
             <!-- <div class="arrow-r"><h1>></h1></div> -->
         </div>
 
+        <div class="message">
+            <p>Hello there! <br><br>
+                Thank you for stopping by! Whether you have a question, feedback, or just want to say hi, I'd love to hear from you. Feel free to drop me a message using the form below, and I'll get back to you as soon as I can. Your ideas and inquiries are always welcome! <br><br>
+
+                
+                Looking forward to connecting with you.</p>
+        </div>
+
         <form action="https://api.web3forms.com/submit" method="POST" id="cta">
             <input type="hidden" name="access_key" value="d63bc9d1-55c2-4686-a2fd-c99c53d6d196">
 
@@ -542,8 +563,6 @@
             The information contained on this website is for general information purposes only. Lia Siu assumes no responsibility for errors or omissions in the contents of the website. <br>
             Any mention of third-party products, services, or websites is for informational purposes only and does not imply endorsement or recommendation. <br><br>
         </span>
-        For questions or concerns, please contact me <a href="mailto:syntaxmonkey@gmail.com">here</a>.<br>
-        </p>
     </footer>
 </body>
 </html>
