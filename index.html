@@ -188,16 +188,16 @@
 
         html{
             max-width: 1600px;
-
+            overflow-x: hidden; /* for shape blocks */
         }
 
         body{
-            overflow-x: hidden; /* for shape blocks */
             background-color: var(--color-bright);
+
         }
 
         body>*:not(footer, main:not(form)){
-            width: clamp(360px, 100%, 800px) ;
+            max-width: clamp(360px, 100%, 800px) ;
             margin-inline: auto;
 
         }
