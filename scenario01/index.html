@@ -287,7 +287,7 @@
     /* ------------------MEDIA------------------- */
 
 
-        @media(min-width:680px){
+        @media(max-width:400px){
 
            :root{
                 --gutter-slim: 0.7em;
@@ -300,9 +300,6 @@
         
            }
 
-           div[class^="message"]{
-                display: block;
-           }
            
            #hero-btn{
                 display: block;
@@ -315,11 +312,19 @@
             }
         }
 
-        @media(min-width:900px){
+        @media(max-width:860px){
             
             body{
                 width: 100%;
             }
+
+            div[class^="message"]{
+                display: block;
+            }
+
+            div[class^="message"]>*{
+                display: block;
+           }
 
             footer{
                 margin-inline: var(--gutter-wide);
