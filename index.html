@@ -63,14 +63,17 @@
             }
 
             body{
-                width: 100%;
+                max-width: 100%;
                 overflow-x: hidden; /* for shape blocks */
-
             }
 
             header>*, 
             header #credit{
                 text-align: center;
+            }
+
+            aside .block1{
+                display: none;
             }
 
             main .templates{
@@ -188,16 +191,19 @@
 
         html{
             max-width: 1600px;
-            overflow-x: hidden; /* for shape blocks */
         }
 
         body{
             background-color: var(--color-bright);
-
+            max-width: 100%;
+            overflow-x: hidden; /* for shape blocks */
+            overflow-y: scroll !important;
         }
 
+
+
         body>*:not(footer, main:not(form)){
-            max-width: clamp(360px, 100%, 800px) ;
+            width: clamp(360px, 100%, 800px) ;
             margin-inline: auto;
 
         }
@@ -399,11 +405,13 @@
         }
         
         .block1{
+            display: relative;
             transform: var(--block-position-1);
             background-color: var(--color-mono);
         }
 
         .block2{
+            display: relative;
             transform:var(--block-position-2);
             background-color: var(--color-brighter);
         }
